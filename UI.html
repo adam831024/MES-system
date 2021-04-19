@@ -10,6 +10,8 @@
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <button id="return" type="button">return</button>
+
     <form method="POST" action="/">
       <!-- <input id="project_insert"> -->
       <select id="project_insert">
@@ -20,6 +22,7 @@
       <button type="button" id="btn_project_insert">commit</button>
     </form>
 
+
     <script>
       $("#btn_project_insert").click(function () {
         $.ajax({
@@ -29,9 +32,13 @@
             parameter: $('#project_insert').val(),
           },
           success: function (result) {
-            console.log(result);
+            console.log(result);//警示物料短缺
           }
         });
+      });
+
+      $("#return").on('click', function () {
+        self.location = 'test.html';
       });
     </script>
 
