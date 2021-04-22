@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <h1>account log in</h1>
+    <form method="POST" action="/">
+      <input type="text" id="account" autofocus>
+      <input type="password" id="password">
+      <button type="button" id="login">log in</button>
+    </form>
+
+    <script>
+      $("#login").click(function(){
+        $.ajax({
+          method: "POST",
+          url: "/login",
+          data:{
+            parameter: $('#account').val(),
+            parameter2: $('#password').val(), 
+          },
+          success: function (result) {
+            console.log(result);
+            if(result =="log in success"){
+              self.location = '/';
+            }
+          } 
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -35,10 +35,20 @@
             console.log(result);//警示物料短缺
           }
         });
+         $.ajax({
+          method: "POST",
+          url: "/alarm",
+          data: {
+            parameter: "1356654",
+          },
+          success: function (result) {
+            console.log(result);//警示物料短缺
+          }
+        });
       });
 
       $("#return").on('click', function () {
-        self.location = 'test.html';
+        self.location = 'test';
       });
     </script>
 
